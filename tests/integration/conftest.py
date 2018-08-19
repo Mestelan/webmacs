@@ -225,7 +225,6 @@ def session(qtbot, qapp, mocker):
     sess = TestSession(qtbot, qapp, prompt_exec)
 
     window = Window()
-    WINDOWS_HANDLER.current_window = window
     window.current_webview().setBuffer(create_buffer())
 
     window.show()
@@ -233,11 +232,11 @@ def session(qtbot, qapp, mocker):
 
     yield sess
 
-    for buffer in buffers():
-        close_buffer(buffer)
-
     for w in windows():
         w.close()
         w.deleteLater()
 
     qapp.processEvents()
+
+    for buffer in buffers():
+        close_buffer(buffer)
