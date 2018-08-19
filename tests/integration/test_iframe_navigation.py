@@ -44,10 +44,7 @@ def test_iframe_follow(session, pytestconfig):
 
     session.wait_local_keymap("hint")
     session.wkeyclicks("C-n")
-    # wait until the background color is green, the above keypress has been
-    # taken in account.
-    session.check_javascript("%s.style.backgroundColor" % input0_iframe,
-                             'rgb(136, 255, 0)')
+    session.check_js_follow_element_selected(input0_iframe)
     session.wkeyclicks("Enter")
     session.wait_local_keymap("webcontent-edit")
     session.keyclicks("youhou")

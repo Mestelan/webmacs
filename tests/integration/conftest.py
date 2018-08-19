@@ -71,6 +71,8 @@ def qapp(wm, qapp_args):
 
 
 class TestSession(object):
+    FOLLOW_BG_COLOR = 'rgb(136, 255, 0)'
+
     def __init__(self, qtbot, qapp, prompt_exec):
         self.qtbot = qtbot
         self.qapp = qapp
@@ -150,6 +152,11 @@ class TestSession(object):
 
         assert self.wait_until(ready), "javascript result was %r" % result[0]
         return True
+
+    def check_js_follow_element_selected(self, element):
+        # wait until the given js element is green (selected by a follow)
+        self.check_javascript("%s.style.backgroundColor" % element,
+                              self.FOLLOW_BG_COLOR)
 
     def wait_iframes(self, buffer=None):
         buffer = buffer or self.buffer
