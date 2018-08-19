@@ -9,12 +9,11 @@ from PyQt5.QtWidgets import QWidget
 from PyQt5.QtCore import QEvent, QTimer
 
 from webmacs.application import Application, _app_requires
-from webmacs import (windows, buffers, WINDOWS_HANDLER, current_buffer,
-                     current_window, current_minibuffer)
+from webmacs import (windows, buffers, current_buffer, current_window,
+                     current_minibuffer)
 from webmacs.webbuffer import create_buffer
 from webmacs.window import Window
 from webmacs.webbuffer import close_buffer
-from webmacs.keymaps.content_edit import KEYMAP as wce_keymap
 from webmacs.keyboardhandler import local_keymap
 from webmacs.keymaps import KeyPress, Keymap, KEYMAPS
 

@@ -1,6 +1,4 @@
-from webmacs import buffers, current_window
-
-from PyQt5.QtTest import QTest
+from webmacs import buffers
 
 
 def test_navigate_new_buffer(session):
